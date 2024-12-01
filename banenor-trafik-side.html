@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Widget</title>
+    <style>
+        body {
+            background-color: #444; /* Changed to a different gray */
+            color: white; /* Light text color for visibility */
+            margin: 0;
+            padding: 20px; /* Added padding to the body */
+            display: flex; /* Enable flexbox */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center; /* Center children horizontally */
+        }
+
+        #elfsight-iframe {
+            margin-bottom: 20px; /* Space between iframe and button */
+            width: 100%; /* Full width for iframe */
+            max-width: 800px; /* Max width for the iframe */
+            height: 400px; /* Increased height for the iframe */
+            border: none; /* No border */
+            border-radius: 15px; /* Rounded corners */
+        }
+
+        .refresh-button {
+            padding: 10px 20px; /* Padding for the button */
+            background-color: #556; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .refresh-button:hover {
+            background-color: #778; /* Change background on hover */
+        }
+    </style>
+</head>
+<body>
+
+<iframe id="elfsight-iframe" srcdoc='<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elfsight App Example</title>
+    <style>
+        body {
+            background-color: #333; /* Changed to a different gray for the iframe */
+            color: white; /* Light text color for visibility */
+            margin: 0;
+            padding: 0;
+            transform: scale(0.8); /* Scale down the content */
+            transform-origin: top left; /* Origin for scaling */
+            width: 125%; /* Adjust width to fit scaled content */
+            height: 125%; /* Adjust height to fit scaled content */
+            overflow: hidden; /* Hide overflow */
+        }
+    </style>
+    <script src="https://static.elfsight.com/platform/platform.js" async></script>
+</head>
+<body>
+    <div class="elfsight-app-7b1fdc1d-76cc-454b-aca3-01c7b9cc0a07" data-elfsight-app-lazy></div>
+</body>
+</html>' 
+        width="100%" 
+        height="400px" 
+        style="border:none; border-radius: 15px;"></iframe> <!-- Added rounded corners here -->
+
+<div>
+    <button class="refresh-button" id="manual-refresh-button" aria-label="Refresh the widget">Refresh Now</button>
+</div>
+
+<script>
+    const iframe = document.getElementById('elfsight-iframe');
+
+    function reloadIframe() {
+        iframe.srcdoc = iframe.srcdoc; // Reload the iframe content by resetting srcdoc
+    }
+
+    setInterval(reloadIframe, 300000); // Refresh every 5 minutes (300000 milliseconds)
+
+    // Add event listener to the Manual Refresh button
+    document.getElementById('manual-refresh-button').addEventListener('click', reloadIframe);
+</script>
+
+</body>
+</html>
