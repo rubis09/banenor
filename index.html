@@ -13,13 +13,15 @@
             display: flex; /* Enable flexbox */
             flex-direction: column; /* Stack children vertically */
             align-items: center; /* Center children horizontally */
+            height: 100vh; /* Full viewport height */
+            box-sizing: border-box; /* Include padding in height/width calculations */
         }
 
         #elfsight-iframe {
             margin-bottom: 20px; /* Space between iframe and button */
             width: 100%; /* Full width for iframe */
-            max-width: 800px; /* Max width for the iframe */
-            height: 400px; /* Increased height for the iframe */
+            max-width: 1000px; /* Increased max width for the iframe */
+            height: 80vh; /* Increased height for the iframe */
             border: none; /* No border */
             border-radius: 15px; /* Rounded corners */
         }
@@ -33,6 +35,8 @@
             cursor: pointer; /* Pointer cursor on hover */
             font-size: 16px; /* Font size */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
+            max-width: 200px; /* Max width for button */
+            width: 100%; /* Full width for the button */
         }
 
         .refresh-button:hover {
@@ -54,10 +58,8 @@
             color: white; /* Light text color for visibility */
             margin: 0;
             padding: 0;
-            transform: scale(0.8); /* Scale down the content */
-            transform-origin: top left; /* Origin for scaling */
-            width: 125%; /* Adjust width to fit scaled content */
-            height: 125%; /* Adjust height to fit scaled content */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
             overflow: hidden; /* Hide overflow */
         }
     </style>
@@ -68,8 +70,8 @@
 </body>
 </html>' 
         width="100%" 
-        height="400px" 
-        style="border:none; border-radius: 15px;"></iframe> <!-- Added rounded corners here -->
+        height="100%" 
+        style="border:none; border-radius: 15px;"></iframe>
 
 <div>
     <button class="refresh-button" id="manual-refresh-button" aria-label="Refresh the widget">Refresh Now</button>
